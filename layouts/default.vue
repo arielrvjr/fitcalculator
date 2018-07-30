@@ -1,7 +1,7 @@
 <template>
 <div > 
 <b-navbar  toggleable="md" type="light" fixed="top">
-        <b-container>
+        <b-container fluid>
 <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
   <b-navbar-brand href="#">{{ brand.title }}</b-navbar-brand>

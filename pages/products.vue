@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container fluid>
       <b-card>
         <b-form>
 <h2 class="pb-4">Calculadora Rápida de precio</h2>
