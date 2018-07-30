@@ -2,16 +2,8 @@ import Vuex from 'vuex'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
-import { resolve } from 'url';
+import config from '~/firebaseinit'
 
-var config = {
-  apiKey: "AIzaSyBd34L8yQxYWFQx-V4xDQvxzqFyjm87tyg",
-  authDomain: "fitcalculator-1b790.firebaseapp.com",
-  databaseURL: "https://fitcalculator-1b790.firebaseio.com",
-  projectId: "fitcalculator-1b790",
-  storageBucket: "fitcalculator-1b790.appspot.com",
-  messagingSenderId: "985307511125"
-};
 firebase.initializeApp(config);
 const firestore = firebase.firestore();
 const auth = firebase.auth();
