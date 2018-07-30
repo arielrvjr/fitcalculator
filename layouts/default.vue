@@ -18,7 +18,7 @@
     <nuxt />
     
     <footer class="mt-4">
-        <p class="text-center copyright">AAYYFITLOVE 2018 | Distribuidores independientes de Herbalife.&nbsp;</p>
+        <p class="text-center copyright">{{version}} | AAYYFITLOVE 2018 | Distribuidores independientes de Herbalife.&nbsp;</p>
     </footer>
 
 </div>
@@ -120,12 +120,16 @@ footer {
 
 </style>
 <script>
-
+import {version } from '~/package.json'
 import $ from 'jquery'
 import { mapState } from 'vuex'
 
 export default {
-  
+  data(){
+    return {
+      version: version
+    }
+  },
   computed: mapState([
     'brand', 'isAuth'
   ]),

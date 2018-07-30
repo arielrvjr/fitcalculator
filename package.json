@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "deploy": "firebase deploy",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "version:minor": "npm version minor -m "
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
