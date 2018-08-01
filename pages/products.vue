@@ -117,7 +117,7 @@ export default {
     ...mapState(["products"]),
     total(){
       let total = {vol: 0.00, sale: 0.00, cost:0.00, profit:0.00,qty:0.00};
-      this.productListPercent.forEach(element => {
+      Object.entries(this.productListPercent).forEach(([k,element]) => {
         total.vol = (total.vol  + Number(element.pv));
         total.qty = (total.qty + Number(element.qty));
         total.sale = (total.sale + Number(element.sale));
@@ -127,7 +127,7 @@ export default {
       return total;
     },
     productListPercent(){
-      let productListPercent = [];
+      let productListPercent = {};
       this.productList.forEach(product => {
         let qty = product.qty;
         let sale = Number(qty * product.pp).toFixed(2);
@@ -135,10 +135,7 @@ export default {
         let perc =  Number(product[this.percent]);
         let cost = Number(qty * perc).toFixed(2);
         let profit = Number(sale - cost).toFixed(2);
-        productListPercent.push({
-        title: product.title,
-        qty: qty,  pv: pv, sale: sale, cost: cost, profit: profit
-      }) 
+        productListPercent[product.id] = { title: product.title, qty: qty,  pv: pv, sale: sale, cost: cost, profit: profit}
       });
       return productListPercent;
     }
