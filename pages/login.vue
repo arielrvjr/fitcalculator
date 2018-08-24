@@ -1,7 +1,7 @@
 <template>
     <div class="login-clean">
          <b-row>
-        <b-col md="4" offset="4">
+        <b-col cols="10" offset="1" md="8" offset-md="2" lg="6" offset-lg="3" xl="4" offset-xl="4" >
             <form method="post">
             <b-alert variant="danger"
              dismissible
