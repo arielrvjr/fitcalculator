@@ -1,6 +1,15 @@
 <template>
     <div class="login-clean">
-        <form method="post">
+         <b-row>
+        <b-col md="4" offset="4">
+            <form method="post">
+            <b-alert variant="danger"
+             dismissible
+             fade
+             :show="showDismissibleAlert"
+             @dismissed="showDismissibleAlert=false">
+            {{errorLogin}}
+    </b-alert>
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="form-group"><input class="form-control" v-model="loginUser.email" type="email" name="email" placeholder="Email"></div>
@@ -8,6 +17,10 @@
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" v-on:click="signIn">Log In</button>
             </div>
         </form>
+        </b-col>
+        
+    </b-row>
+        
     </div>
 </template>
 <script>
@@ -15,7 +28,9 @@ export default {
 
     data(){
         return {
-            loginUser: {}
+            loginUser: {},
+            showDismissibleAlert: false,
+            errorLogin: ""
         }
     },
     methods:{
@@ -23,7 +38,10 @@ export default {
             e.preventDefault();
             this.$store.dispatch('signIn',this.loginUser).then(() => {
                 this.$router.push('/products');
-            }).catch(e => console.log(e));
+            }).catch(e => {
+                this.errorLogin= e.message;
+                this.showDismissibleAlert = true;
+            });
         }
     }
 }
@@ -36,8 +54,6 @@ export default {
 }
 
 .login-clean form {
-  max-width:320px;
-  width:90%;
   margin:0 auto;
   background-color:#ffffff;
   padding:40px;

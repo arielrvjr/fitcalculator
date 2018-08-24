@@ -49,8 +49,7 @@ const createStore = () => {
                         commit('SET_USER', firebaseUser.user)
                         resolve();
                     }).catch(e => {
-                        console.log('login error', e);
-                        reject();
+                        reject(e);
                     });
                 });
             },
